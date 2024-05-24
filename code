@@ -1,8 +1,9 @@
-int sensorTop=A0;  // The following corresponds to the infrared sensor mounted in the tank
-int sensorBottum=A5;  // The following corresponds to the limit switch On the front of the main body module, This switch is always on switch and on pushing down disconnects the "High" line (5V) From the data input pin
-int Relay1=8;   // This is a series relay disguised as one but works in parallel to ensure redundancy alongside dividing the load
+int sensorTop=8;  // The following corresponds to the infrared sensor mounted in the tank
+int sensorBottum=9;  // The following corresponds to the limit switch On the front of the main body module, This switch is always on switch and on pushing down disconnects the "High" line (5V) From the data input pin
+int Relay1=10;   // This is a series relay disguised as one but works in parallel to ensure redundancy alongside dividing the load
 int Buzzer=13; // Setup buzzer, An audio indicator For all the actions
-int Led=10; // LED indicator light , For visual aid
+int Led=12; // LED indicator light , For visual aid
+int Bled=11; 
 void setup() 
 
 { 
@@ -12,23 +13,34 @@ void setup()
   pinMode(Relay1, OUTPUT);
   pinMode(Buzzer, OUTPUT);
   pinMode(Led,    OUTPUT);
-
+  pinMode(Bled,   OUTPUT);
  digitalWrite(Led,HIGH);
-
+ digitalWrite(Bled,HIGH);
   // Simple end-of-cycle melody with increased speed
   // Note durations in milliseconds
 
   digitalWrite(Buzzer, HIGH);
+  digitalWrite(Led, HIGH);
   delay(50);  // Note 1
   digitalWrite(Buzzer, LOW);
   delay(50);  // Pause
+  digitalWrite(Led, LOW);
+  digitalWrite(Bled, HIGH);
   digitalWrite(Buzzer, HIGH);
   delay(50);  // Note 7
+  digitalWrite(Led, HIGH);
+  digitalWrite(Bled, LOW);
   digitalWrite(Buzzer, LOW);
   delay(50);  // End pause
+  digitalWrite(Led, LOW);
+  delay(50);  // End pause
   digitalWrite(Buzzer, HIGH);
+  digitalWrite(Led, HIGH);
+  digitalWrite(Bled, HIGH);
   delay(250);  // Note 7
   digitalWrite(Buzzer, LOW);
+  digitalWrite(Bled, HIGH);
+  digitalWrite(Led, HIGH);
  }
 
 
@@ -52,6 +64,14 @@ if(digitalRead(sensorBottum)==LOW)
 if(digitalRead(sensorTop)==LOW)
 {
   digitalWrite(Relay1,LOW);
-  digitalWrite(Led,HIGH); 
+  digitalWrite(Led,HIGH);
+
+  digitalWrite(Bled,LOW); 
+  delay(500);
+  digitalWrite(Bled,HIGH);
+  delay(500);
+  digitalWrite(Bled,LOW);
+  delay(500);
+  digitalWrite(Bled,HIGH);
 }
 }
