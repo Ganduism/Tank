@@ -4,41 +4,45 @@ int Relay1=10;   // This is a series relay disguised as one but works in paralle
 int Buzzer=13; // Setup buzzer, An audio indicator For all the actions
 int Led=12; // LED indicator light , For visual aid
 int Bled=11; 
+
 void setup() 
 
 { 
   pinMode(sensorTop,    INPUT);
   pinMode(sensorBottum, INPUT);
   
+
   pinMode(Relay1, OUTPUT);
   pinMode(Buzzer, OUTPUT);
   pinMode(Led,    OUTPUT);
   pinMode(Bled,   OUTPUT);
+  
  digitalWrite(Led,HIGH);
  digitalWrite(Bled,HIGH);
+
   // Simple end-of-cycle melody with increased speed
   // Note durations in milliseconds
 
-  digitalWrite(Buzzer, HIGH);
+  digitalWrite(Buzzer, LOW);
   digitalWrite(Led, HIGH);
   delay(50);  // Note 1
-  digitalWrite(Buzzer, LOW);
+  digitalWrite(Buzzer, HIGH);
   delay(50);  // Pause
   digitalWrite(Led, LOW);
   digitalWrite(Bled, HIGH);
-  digitalWrite(Buzzer, HIGH);
+  digitalWrite(Buzzer, LOW);
   delay(50);  // Note 7
   digitalWrite(Led, HIGH);
   digitalWrite(Bled, LOW);
-  digitalWrite(Buzzer, LOW);
+  digitalWrite(Buzzer, HIGH);
   delay(50);  // End pause
   digitalWrite(Led, LOW);
   delay(50);  // End pause
-  digitalWrite(Buzzer, HIGH);
+  digitalWrite(Buzzer, LOW);
   digitalWrite(Led, HIGH);
   digitalWrite(Bled, HIGH);
   delay(250);  // Note 7
-  digitalWrite(Buzzer, LOW);
+  digitalWrite(Buzzer, HIGH);
   digitalWrite(Bled, HIGH);
   digitalWrite(Led, HIGH);
  }
@@ -50,13 +54,13 @@ void loop()
 if(digitalRead(sensorBottum)==LOW)
 {
    digitalWrite(Led,LOW); 
-  digitalWrite(Buzzer,HIGH);
-  delay(300);
   digitalWrite(Buzzer,LOW);
   delay(300);
   digitalWrite(Buzzer,HIGH);
   delay(300);
   digitalWrite(Buzzer,LOW);
+  delay(300);
+  digitalWrite(Buzzer,HIGH);
 
   digitalWrite(Relay1,HIGH);
  
@@ -70,8 +74,8 @@ if(digitalRead(sensorTop)==LOW)
   delay(500);
   digitalWrite(Bled,HIGH);
   delay(500);
-  digitalWrite(Bled,LOW);
-  delay(500);
   digitalWrite(Bled,HIGH);
 }
+
+
 }
