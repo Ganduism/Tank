@@ -1,0 +1,25 @@
+int sensorTop=5;  // (GF) sensorTop means IR senor which will be installed on the bottom most step 
+int Relay=7;
+
+void setup() 
+{ 
+  pinMode(sensorTop,   INPUT); 
+  pinMode(Relay, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
+ }
+
+void loop() 
+{
+ if(digitalRead(sensorTop)==LOW)
+{
+  digitalWrite(Relay,HIGH);
+  delay(500);
+  digitalWrite(Relay,LOW);
+  delay(3000);
+  digitalWrite(Relay,HIGH);
+  delay(500);
+  digitalWrite(Relay,LOW);
+  delay(3000);
+  
+}
+}
