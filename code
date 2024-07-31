@@ -1,9 +1,9 @@
-int sensorTop=8;  // The following corresponds to the infrared sensor mounted in the tank
-int sensorBottum=9;  // The following corresponds to the limit switch On the front of the main body module, This switch is always on switch and on pushing down disconnects the "High" line (5V) From the data input pin
+int sensorTop=12;  // The following corresponds to the infrared sensor mounted in the tank
+int sensorBottum=11;  // The following corresponds to the limit switch On the front of the main body module, This switch is always on switch and on pushing down disconnects the "High" line (5V) From the data input pin
 int Relay1=10;   // This is a series relay disguised as one but works in parallel to ensure redundancy alongside dividing the load
 int Buzzer=13; // Setup buzzer, An audio indicator For all the actions
-int Led=12; // LED indicator light , For visual aid
-int Bled=11; 
+int Led=8; // LED indicator light , For visual aid
+int Bled=9; 
 
 void setup() 
 
@@ -61,10 +61,9 @@ if(digitalRead(sensorBottum)==LOW)
   digitalWrite(Buzzer,LOW);
   delay(300);
   digitalWrite(Buzzer,HIGH);
-
   digitalWrite(Relay1,HIGH);
- 
 }
+
 if(digitalRead(sensorTop)==LOW)
 {
   digitalWrite(Relay1,LOW);
