@@ -45,6 +45,20 @@ void setup()
   digitalWrite(Buzzer, HIGH);
   digitalWrite(Bled, HIGH);
   digitalWrite(Led, HIGH);
+
+  // Auto stRTUP
+
+  digitalWrite(Led,LOW); 
+  digitalWrite(Buzzer,LOW);
+  delay(300);
+  digitalWrite(Buzzer,HIGH);
+  delay(300);
+  digitalWrite(Buzzer,LOW);
+  delay(300);
+  digitalWrite(Buzzer,HIGH);
+
+  digitalWrite(Relay1,HIGH);
+
  }
 
 
@@ -61,6 +75,7 @@ if(digitalRead(sensorBottum)==LOW)
   digitalWrite(Buzzer,LOW);
   delay(300);
   digitalWrite(Buzzer,HIGH);
+
   digitalWrite(Relay1,HIGH);
 }
 
@@ -75,6 +90,5 @@ if(digitalRead(sensorTop)==LOW)
   delay(500);
   digitalWrite(Bled,HIGH);
 }
-
 
 }
